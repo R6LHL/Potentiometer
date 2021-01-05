@@ -2,7 +2,6 @@
 #define _POTENTIOMETER_H
 
 #include <Arduino.h>
-#include <math.h>
 
 typedef unsigned const char pin_number;
 
@@ -23,13 +22,13 @@ class Potentiometer
 				}
 			
 			//double getValueAsCoeff(void) {return ceil((analogRead(pin)/(T_ADC - 1));}
-			float getValueAsCoeff(void) {return (float)(ceil((analogRead(pin)/(T_ADC - 1)));}
-			unsigned const char getValueAsPercent(void) {return ((analogRead(pin)/(T_ADC - 1))*100);}
-			unsigned const int getValue(void){return analogRead(pin);}
-			float getVoltage(void){return ((analogRead(pin) / (T_ADC - 1)) * AREF_VOLTAGE);}
+			float getValueAsCoeff(void) const {return (float)(ceil((analogRead(pin)/(T_ADC - 1)));}
+			unsigned char getValueAsPercent(void) const {return ((analogRead(pin)/(T_ADC - 1))*100);}
+			unsigned int getValue(void) const {return analogRead(pin);}
+			float getVoltage(void) const {return ((analogRead(pin) / (T_ADC - 1)) * AREF_VOLTAGE);}
 			
 	private: 
-			pin_number pin;
+			pin_number analog_pin;
 			float AREF_VOLTAGE;
 			
 			
