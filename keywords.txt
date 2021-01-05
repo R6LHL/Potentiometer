@@ -1,0 +1,5 @@
+Potentiometer		KEYWORD1
+
+getValueAsCoeff 	KEYWORD2
+getValueAsPercent	KEYWORD2
+getValue			KEYWORD2
