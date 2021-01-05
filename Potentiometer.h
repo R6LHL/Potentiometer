@@ -11,8 +11,16 @@ template <unsigned const int T_ADC> // bit depth of ADC
 class Potentiometer
 {
 	public:
-			Potentiometer(pin_number p) {pin = p;}
-			Potentiometer (pin_number p, float voltage){pin = p; AREF_VOLTAGE = voltage};
+			Potentiometer(pin_number p){
+				pin = p;
+				PinMode(pin, INPUT_PULLUP);
+				}
+				
+			Potentiometer (pin_number p, float voltage){
+				pin = p;
+				PinMode(pin, INPUT_PULLUP);
+				AREF_VOLTAGE = voltage;
+				}
 			
 			//double getValueAsCoeff(void) {return ceil((analogRead(pin)/(T_ADC - 1));}
 			float getValueAsCoeff(void) {return (float)(ceil((analogRead(pin)/(T_ADC - 1)));}
