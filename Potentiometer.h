@@ -2,6 +2,7 @@
 #define _POTENTIOMETER_H
 
 #include <Arduino.h>
+#include <math.h>
 
 typedef unsigned const char pin_number;
 
